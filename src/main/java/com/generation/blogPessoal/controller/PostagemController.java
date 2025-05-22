@@ -24,7 +24,7 @@ import com.generation.blogPessoal.repository.TemaRepository;
 
 import jakarta.validation.Valid;
 
-import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/postagens")
@@ -154,7 +154,5 @@ public class PostagemController {
 		postagemRepository.deleteById(id);
 
 	}
-	
-	
 	
 }
