@@ -19,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.generation.blogPessoal.model.Usuario;
+import com.generation.blogPessoal.model.UsuarioLogin;
 import com.generation.blogPessoal.repository.UsuarioRepository;
 import com.generation.blogPessoal.service.UsuarioService;
 import com.generation.blogPessoal.util.TestBuilder;
@@ -145,5 +146,25 @@ public class UsuarioControllerTest {
 	    assertEquals("Ana Souza", resposta.getBody().getNome());
 	    assertEquals("ana_souza@email.com.br", resposta.getBody().getUsuario());
 	}
-		
+	
+	@Test
+	@DisplayName("Deve autenticar o usuário com sucesso")
+	public void deveAutenticarUsuarioComSucesso() {
+
+	    // Given
+	    Usuario usuario = TestBuilder.criarUsuario(null, "João Santos", "joao_santos@email.com.br", "senhaForte123");
+	    usuarioService.cadastrarUsuario(usuario);
+
+	    UsuarioLogin usuarioLogin = new UsuarioLogin("joao_santos@email.com.br", "senhaForte123");
+	    HttpEntity<UsuarioLogin> requisicao = new HttpEntity<>(usuarioLogin);
+
+	    // When
+	    ResponseEntity<UsuarioLogin> resposta = testRestTemplate.exchange(
+	            BASE_URL_USUARIOS + "/logar", HttpMethod.POST, requisicao, UsuarioLogin.class);
+
+	    // Then
+	    assertEquals(HttpStatus.OK, resposta.getStatusCode());
+	    assertNotNull(resposta.getBody());
+	    assertEquals("joao_santos@email.com.br", resposta.getBody().getUsuario());
+	}
 }
