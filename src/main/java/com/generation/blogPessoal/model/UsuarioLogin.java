@@ -1,13 +1,14 @@
 package com.generation.blogPessoal.model;
 
+import java.time.LocalDate;
 
 public class UsuarioLogin {
 
 	private Long id;
 	private String nome;
 	private String usuario;
+	private LocalDate dataNascimento;
 	private String senha;
-	private String foto;
 	private String token;
 
 	public UsuarioLogin(String usuario, String senha) {
@@ -16,7 +17,7 @@ public class UsuarioLogin {
 	}
 
 	public Long getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Long id) {
@@ -24,7 +25,7 @@ public class UsuarioLogin {
 	}
 
 	public String getNome() {
-		return this.nome;
+		return nome;
 	}
 
 	public void setNome(String nome) {
@@ -32,35 +33,37 @@ public class UsuarioLogin {
 	}
 
 	public String getUsuario() {
-		return this.usuario;
+		return usuario;
 	}
 
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 	public String getSenha() {
-		return this.senha;
+		return senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
-	public String getFoto() {
-		return this.foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-
 	public String getToken() {
-		return this.token;
+		return token;
 	}
 
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+
 
 }
