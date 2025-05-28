@@ -10,7 +10,6 @@ public class TestBuilder {
 		usuario.setNome(nome);
 		usuario.setUsuario(email);
 		usuario.setSenha(senha);
-		usuario.setFoto("-");
 		return usuario;
 	}
 	public static Usuario criarUsuarioRoot() {
