@@ -1,13 +1,11 @@
 package com.generation.blogPessoal.model;
 
-import java.time.LocalDate;
 
 public class UsuarioLogin {
 
 	private Long id;
 	private String nome;
 	private String usuario;
-	private LocalDate dataNascimento;
 	private String senha;
 	private String token;
 
@@ -38,14 +36,6 @@ public class UsuarioLogin {
 
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
-	}
-
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
 	}
 
 	public String getSenha() {
