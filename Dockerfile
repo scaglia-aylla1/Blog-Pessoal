@@ -1,5 +1,3 @@
-FROM openjdk:17.0.1-jdk-oracle as build
-
 FROM eclipse-temurin:21-jdk AS build
 
 WORKDIR /workspace/app
