@@ -1,5 +1,7 @@
 FROM openjdk:17.0.1-jdk-oracle as build
 
+FROM eclipse-temurin:21-jdk AS build
+
 WORKDIR /workspace/app
 
 COPY mvnw .
@@ -13,7 +15,7 @@ RUN ./mvnw install -DskipTests
 
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-FROM openjdk:17.0.1-jdk-oracle
+FROM eclipse-temurin:21-jdk
 
 VOLUME /tmp
 
@@ -23,4 +25,4 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.generation.blogPessoal.BlogPessoalApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.generation.blogPessoal.BlogpessoalApplication"]

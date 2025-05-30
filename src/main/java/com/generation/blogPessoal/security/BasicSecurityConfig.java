@@ -1,5 +1,6 @@
 package com.generation.blogPessoal.security;
 
+
 import static org.springframework.security.config.Customizer.withDefaults;
 
 import org.springframework.beans.factory.annotation.Autowired;

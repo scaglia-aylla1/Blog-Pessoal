@@ -1,5 +1,6 @@
 package com.generation.blogPessoal.security;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -9,36 +10,38 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.generation.blogPessoal.model.Usuario;
 
 public class UserDetailsImpl implements UserDetails {
-	
-	private static final long serialVersionUID = 1l;
-	
+
+	private static final long serialVersionUID = 1L;
+
 	private String username;
 	private String password;
 	private List<GrantedAuthority> authorities;
-	
+
 	public UserDetailsImpl(Usuario user) {
 		this.username = user.getUsuario();
 		this.password = user.getSenha();
 	}
-	
-	public UserDetailsImpl() {
-	}
+
+	public UserDetailsImpl() {	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return authorities;
+
+		return authorities; 
 	}
 
 	@Override
 	public String getPassword() {
+
 		return password;
 	}
 
 	@Override
 	public String getUsername() {
+
 		return username;
 	}
-	
+
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
@@ -58,6 +61,5 @@ public class UserDetailsImpl implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-	 
 
 }
