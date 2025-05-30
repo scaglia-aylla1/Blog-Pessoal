@@ -14,21 +14,20 @@ import com.generation.blogPessoal.model.Usuario;
 import com.generation.blogPessoal.repository.UsuarioRepository;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService{
-
+public class UserDetailsServiceImpl implements UserDetailsService {
+	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		Optional<Usuario> usuario = usuarioRepository.findByUsuario(userName);
+		Optional<Usuario> usuario = usuarioRepository.findByUsuario(username);
 
 		if (usuario.isPresent())
 			return new UserDetailsImpl(usuario.get());
 		else
-			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
-
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Erro ao Autenticar o Usuário");
+			
 	}
-
 }
